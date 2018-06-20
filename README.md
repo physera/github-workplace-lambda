@@ -16,7 +16,7 @@ In addition to the environment variables you've set following the document above
 
 We now just need to make sure Github calls your endpoint whenever something happens.
 
-* From your Github, go to Settings ... Webhooks. Then hit `Add Webhook`.
+* From your Github repo, go to Settings ... Webhooks. Then hit `Add Webhook`.
 * For the Payload URL, enter in the URL for the API Gateway trigger.
 * For Content type select `application/json`.
 * For Secret, put in the value you created for `GITHUB_WEBHOOK_SECRET`.
