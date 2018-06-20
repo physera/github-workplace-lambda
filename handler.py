@@ -35,14 +35,14 @@ def lambda_handler(event, context):
         return {"statusCode": 200, "body": "Unsupported event"}
 
     body = json.loads(body)
-    allowed_actions = { "opened", "closed", "reopened" }
+    allowed_actions = {"opened", "closed", "reopened"}
     action = body.get("action")
     if action not in allowed_actions:
         return {"statusCode": 200, "body": "Unsupported pull request action"}
 
     if action == "closed" and body.get("merged"):
         action = "merged"
-    
+
     pr_data = body.get("pull_request")
     repo = body.get("repository")
     sender = body.get("sender")
@@ -60,6 +60,6 @@ def lambda_handler(event, context):
         'formatting': 'MARKDOWN',
         'message': msg,
     }
-    resp = requests.post(url, headers=post_headers, data=data).json()
+    requests.post(url, headers=post_headers, data=data)
     print("Posted to group!")
     return {"statusCode": 200, "body": "Victory!"}
