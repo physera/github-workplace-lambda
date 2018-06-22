@@ -83,13 +83,13 @@ def lambda_handler(event, context):
         branch_data = body.get("branches")[0]
         branch_name = branch_data.get("name")
         retry_url = "https://circleci.com/actions/retry/github/{}/{}".format(repo, ci_build_number)
-        msg = "[{}] {}'s circleci build # [{}]({}) ({}) **{}**\nBranch [{}/{}]({}): {}\nActions: [Rebuild]({})".format(
+        msg = "[{}] **{}**: {}'s circleci build # [{}]({}) ({})\n\nBranch [{}/{}]({}):\n>{}\n\nActions: [Rebuild]({})".format(
             repo,
+            state.upper(),
             author,
             ci_build_number,
             ci_url,
             ci_project,
-            state,
             branch_name,
             commit_number,
             commit_url,
