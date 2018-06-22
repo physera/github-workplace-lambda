@@ -57,7 +57,7 @@ def lambda_handler(event, context):
             action,
             body.get("number"),
             pr_data.get("title"),
-            pr_data.get("url"),
+            pr_data.get("html_url"),
             pr_data.get("body"),
         )
 
